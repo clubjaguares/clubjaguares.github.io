@@ -95,27 +95,30 @@
             <div class="col-md-6 pb-5">
                 <div class="contact-form">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate" action="enviarj.php" method="post">
-                        <div class="control-group">
-                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu Nombre" required="required" data-validation-required-message="Por favor ingresa tu nombre" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Tu Email" required="required" data-validation-required-message="Por favor ingresa tu email" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <input type="text" class="form-control" name="asunto" id="asunto" placeholder="Asunto" required="required" data-validation-required-message="Pr favor ingresa el asunto" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <textarea class="form-control" rows="6" name="mensaje" id="mensaje" placeholder="Mensaje" required="required" data-validation-required-message="Por favor escribe tu mensaje"></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div>
-                            <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Enviar Mensaje</button>
-                        </div>
-                    </form>
+                   
+                    <h1 class="mb-0">
+
+                        <?php 
+                            $nombre = $_POST['nombre'];
+                            $email = $_POST['email'];
+                            $asunto = $_POST['asunto'];
+                            $mensaje = $_POST['mensaje'];
+                            
+                            $mensaje = "    Nombre: ".$nombre."
+                            Email: ".$email." 
+                            Asunto: ".$asunto." 
+                            Mensaje: ".$mensaje."
+                            
+                            
+                            Mensaje enviado desde la website de JAGUARES ";
+
+
+                            if(mail('jaguares.clubdepatinaje@gmail.com', $asunto, $mensaje)){
+                                echo "Correo enviado";
+                            } else echo "Correo enviado";
+                        ?>
+                     </h1>
+
                 </div>
             </div>
         </div>
